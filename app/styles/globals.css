@@ -1,0 +1,24 @@
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-white);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: var(--font-base);
+  scroll-behavior: smooth;
+}
