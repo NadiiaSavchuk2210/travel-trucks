@@ -8,7 +8,7 @@ const Header = () => {
       <div className={css.headerContainer}>
         <Link href="/" className={css.logo} aria-label="TravelTrucks Home">
           <svg className={css.logoIcon} width={136} height={15}>
-            <use href="/icons/sprite.svg#logo-icon" />
+            <use href="/icons/sprite.svg#icon-logo" />
           </svg>
         </Link>
         <Navbar />

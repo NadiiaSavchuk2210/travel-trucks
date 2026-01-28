@@ -1,12 +1,13 @@
 .navbar {
-  width: calc(100%- 272px);
+  width: calc(100%- 172px);
 }
 
 .navList {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   gap: 15px;
+  min-width: 138px;
 }
 
 .navLink {
@@ -22,6 +23,7 @@
 .navLink:hover,
 .navLink:focus,
 .navLink.current {
+  font-weight: 500;
   color: var(--color-button-hover);
 }
 
@@ -39,7 +41,12 @@
     max-width: 768px;
   }
 
+  .navbar {
+    width: calc(100%- 272px);
+  }
+
   .navList {
+    justify-content: center;
     gap: 32px;
   }
 }

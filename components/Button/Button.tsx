@@ -1,7 +1,52 @@
+import Link from "next/link";
+import clsx from "clsx";
 import css from "./Button.module.css";
 
-const Button = () => {
-  return <div>Button</div>;
+type Variant = "primary" | "outline";
+
+type ButtonBaseProps = {
+  variant?: Variant;
+  className?: string;
+  children: React.ReactNode;
+};
+
+type ButtonAsLink = ButtonBaseProps & {
+  as: "link";
+  href: string;
+};
+
+type ButtonAsButton = ButtonBaseProps & {
+  as?: "button";
+  type?: "button" | "submit" | "reset";
+  onClick?: () => void;
+  disabled?: boolean;
+};
+
+type ButtonProps = ButtonAsLink | ButtonAsButton;
+
+const Button = (props: ButtonProps) => {
+  const { variant = "primary", className, children } = props;
+
+  const classes = clsx(css.button, css[variant], className);
+
+  if (props.as === "link") {
+    return (
+      <Link href={props.href} className={classes}>
+        {children}
+      </Link>
+    );
+  }
+
+  return (
+    <button
+      type={props.type ?? "button"}
+      onClick={props.onClick}
+      disabled={props.disabled}
+      className={classes}
+    >
+      {children}
+    </button>
+  );
 };
 
 export default Button;

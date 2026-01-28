@@ -22,4 +22,5 @@ body {
 html {
   font-size: var(--font-base);
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }

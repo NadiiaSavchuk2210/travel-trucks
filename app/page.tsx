@@ -1,5 +1,10 @@
+import HomeBanner from "@/components/HomeBanner/HomeBanner";
 import css from "./page.module.css";
 
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <>
+      <HomeBanner />
+    </>
+  );
 }
