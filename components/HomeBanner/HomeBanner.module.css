@@ -1,5 +1,7 @@
 .hero {
+  margin: 0 auto;
   width: 100%;
+  max-width: 320px;
   min-height: calc(100dvh - 72px);
 
   background-image: image-set(
@@ -50,6 +52,7 @@
 
 @media (min-width: 768px) {
   .hero {
+    max-width: 768px;
     min-height: calc(100vh - 72px);
     background-position: top center;
   }
@@ -71,5 +74,9 @@
 @media screen and (min-width: 1158px) {
   .heroContainer {
     max-width: 1342px;
+  }
+
+  .hero {
+    max-width: 1440px;
   }
 }
