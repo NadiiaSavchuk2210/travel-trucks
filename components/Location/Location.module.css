@@ -1,0 +1,9 @@
+.location {
+  padding-top: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .location {
+    padding-top: 48px;
+  }
+}

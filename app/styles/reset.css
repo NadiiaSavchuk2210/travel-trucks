@@ -26,6 +26,17 @@ img {
   height: auto;
 }
 
+fieldset {
+  border: none;
+  min-inline-size: 0;
+}
+
+fieldset,
+legend {
+  padding: 0;
+  margin: 0;
+}
+
 input,
 textarea,
 button {
@@ -43,12 +54,26 @@ button {
   cursor: pointer;
 }
 
+button,
+input,
+textarea {
+  outline: none;
+}
+
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 a:focus-visible {
-  outline: 3px solid var(--color-button);
+  outline: 2px solid var(--color-main);
   outline-offset: 2px;
+}
+
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
+  border-color: var(--color-main);
 }
 
 .visually-hidden {
