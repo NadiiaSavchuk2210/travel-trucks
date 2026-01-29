@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-const Catalog = () => {
+const CatalogPage = () => {
   return <div>Catalog</div>;
 };
 
-export default Catalog;
+export default CatalogPage;

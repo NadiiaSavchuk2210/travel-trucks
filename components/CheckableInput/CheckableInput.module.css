@@ -1,0 +1,96 @@
+.checkableLabel {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 90px;
+  height: 40px;
+  border: 1px solid var(--color-gray-light);
+  border-radius: 12px;
+  mix-blend-mode: multiply;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.checkableLabel span {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: var(--font-xs);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--color-main);
+  border-color: transparent;
+}
+
+.checkableInput {
+  position: absolute;
+  opacity: 0;
+}
+
+.custom {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    border 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.custom.checkbox {
+  border-radius: 8px;
+}
+
+.custom.radio {
+  border-radius: 50%;
+}
+
+.checkableIcon {
+  display: flex;
+}
+.checkableIcon,
+.checkableIcon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.checkableLabel:has(.checkableInput:checked),
+.checkableLabel[data-checked="true"] {
+  border-color: var(--color-button);
+}
+
+.checkableLabel:hover {
+  border-color: var(--color-button);
+}
+
+.checkableInput:disabled + .custom,
+.checkableLabel:has(.checkableInput:disabled) {
+  background-color: var(--color-badges);
+  cursor: not-allowed;
+}
+
+.disabledText {
+  color: var(--color-text);
+}
+
+@media screen and (min-width: 1158px) {
+  .checkableLabel {
+    flex-direction: column;
+    width: 112px;
+    height: 96px;
+    gap: 8px;
+  }
+
+  .checkableLabel span {
+    font-size: var(--font-base);
+  }
+  .checkableIcon,
+  .checkableIcon svg {
+    width: 32px;
+    height: 32px;
+  }
+}
