@@ -1,3 +1,5 @@
+import { VEHICLE_TYPES } from "@/constants/filter-constants";
+
 interface GalleryItem {
   thumb: string;
   original: string;
@@ -36,3 +38,5 @@ export interface Camper {
   gallery: GalleryItem[];
   reviews: ReviewItem[];
 }
+
+export type VehicleType = (typeof VEHICLE_TYPES)[number];

@@ -1,8 +1,5 @@
 .sidebar {
   padding: 0 15px;
-  position: sticky;
-  top: 72px;
-  left: 0;
   z-index: 100;
   height: 100%;
   width: 100%;
@@ -11,6 +8,9 @@
 
 @media screen and (min-width: 768px) {
   .sidebar {
+    position: sticky;
+    top: 72px;
+    left: 0;
     height: calc(100vh - 72px);
   }
 }

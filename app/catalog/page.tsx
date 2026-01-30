@@ -1,5 +1,8 @@
 import { Metadata } from "next";
-import { HOME_PAGE_URL, OG_IMAGE_URL, SITE_NAME } from "@/constants";
+import { HOME_PAGE_URL, OG_IMAGE_URL, SITE_NAME } from "@/constants/constants";
+import css from "./page.module.css";
+
+import Campers from "@/components/Campers/Campers";
 
 export const metadata: Metadata = {
   title: "Catalog | TravelTrucks - Camper Rental Service",
@@ -33,7 +36,12 @@ export const metadata: Metadata = {
 };
 
 const CatalogPage = () => {
-  return <div>Catalog</div>;
+  return (
+    <section className={css.catalogSection}>
+      Campers
+      <Campers />
+    </section>
+  );
 };
 
 export default CatalogPage;

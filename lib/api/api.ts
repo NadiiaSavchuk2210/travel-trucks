@@ -1,8 +1,10 @@
-import { API_BASE_URL } from "@/constants";
+import { API_BASE_URL } from "@/constants/constants";
 import { Camper } from "@/types/camper";
 import axios from "axios";
-import { CAMPERS_PER_PAGE } from "../../constants";
-import { buildFilterParams } from "@/helpers/filterHelper";
+import { CAMPERS_PER_PAGE } from "../../constants/constants";
+import { CampersFilter } from "@/types/filter";
+import { buildQueryString } from "@/helpers/queryHelpers/buildQueryString";
+import { buildFilterParams } from "@/helpers/queryHelpers/buildFilterParams";
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -11,24 +13,9 @@ const api = axios.create({
 
 //* Campers =================================================
 // Interfaces
-
-export interface FetchCampersFilter {
-  location?: string;
-  form?: string;
-  AC?: boolean;
-  bathroom?: boolean;
-  kitchen?: boolean;
-  TV?: boolean;
-  radio?: boolean;
-  refrigerator?: boolean;
-  microwave?: boolean;
-  gas?: boolean;
-  water?: boolean;
-}
-
 export interface FetchCampersRequest {
-  filter: FetchCampersFilter;
-  page: number;
+  filter: CampersFilter;
+  page?: number;
   limit?: number;
 }
 
@@ -43,17 +30,11 @@ export const fetchCampers = async ({
   page = 1,
   limit = CAMPERS_PER_PAGE,
 }: FetchCampersRequest): Promise<FetchCampersResponse> => {
-  const params = {
-    ...buildFilterParams(filter),
-    page,
-    limit,
-  };
+  const params = buildFilterParams(filter, page, limit);
 
-  const { data } = await api.get("/campers", {
-    params,
-    paramsSerializer: (params) =>
-      new URLSearchParams(params as Record<string, string>).toString(),
-  });
+  const queryString = buildQueryString(params);
+
+  const { data } = await api.get(`/campers?${queryString}`);
   return data;
 };
 

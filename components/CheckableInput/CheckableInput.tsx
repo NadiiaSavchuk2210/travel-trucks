@@ -7,6 +7,7 @@ type CheckableInputProps = {
   name?: string;
   label?: string;
   checked?: boolean;
+  value?: string;
   defaultChecked?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
@@ -19,6 +20,7 @@ export const CheckableInput = ({
   name,
   label,
   checked,
+  value,
   defaultChecked,
   onChange,
   disabled,
@@ -34,7 +36,7 @@ export const CheckableInput = ({
         id={id}
         name={name}
         checked={checked}
-        defaultChecked={defaultChecked}
+        value={value}
         onChange={onChange}
         disabled={disabled}
         className={css.checkableInput}

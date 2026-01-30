@@ -4,7 +4,7 @@ import Link from "next/link";
 import css from "./Navbar.module.css";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-import { isActiveRoute } from "@/helpers/stylesHelper";
+import { isActiveRoute } from "@/helpers/stylesHelpers/isActiveRoute";
 
 const navLinks = [
   { href: "/", label: "Home" },
