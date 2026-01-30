@@ -6,7 +6,7 @@ import "./styles/variables.css";
 import "./styles/globals.css";
 import Header from "@/components/Header/Header";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
-import { HOME_PAGE_URL, OG_IMAGE_URL, SITE_NAME } from "@/constants";
+import { HOME_PAGE_URL, OG_IMAGE_URL, SITE_NAME } from "@/constants/constants";
 
 const inter = Inter({
   variable: "--font-inter",
