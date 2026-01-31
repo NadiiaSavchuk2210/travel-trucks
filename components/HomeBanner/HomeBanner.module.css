@@ -1,16 +1,16 @@
 .hero {
-  margin: 0 auto;
+  position: relative;
   width: 100%;
+  margin: 0 auto;
   max-width: 320px;
   min-height: calc(100dvh - 72px);
+  overflow: hidden;
+}
 
-  background-image: image-set(
-    url("/images/banner/banner.jpg") 1x,
-    url("/images/banner/banner@2x.jpg") 2x
-  );
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
+.heroImage {
+  object-fit: cover;
+  object-position: top center;
+  z-index: -1;
 }
 
 .heroContainer {
@@ -54,7 +54,6 @@
   .hero {
     max-width: 768px;
     min-height: calc(100vh - 72px);
-    background-position: top center;
   }
 
   .heroContainer {

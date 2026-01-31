@@ -1,10 +1,21 @@
-import Link from "next/link";
+import Image from "next/image";
 import css from "./HomeBanner.module.css";
 import Button from "../Button/Button";
 
 const HomeBanner = () => {
   return (
     <section className={css.hero} aria-label="Home page hero banner">
+      <Image
+        src="/images/banner/banner.jpg"
+        alt="Campers hero banner"
+        fill
+        priority
+        loading="eager"
+        sizes="100vw"
+        className={css.heroImage}
+        fetchPriority="high"
+      />
+
       <div className={css.heroContainer}>
         <div className={css.heroContent}>
           <h1 className={css.heroTitle}>Campers of your dreams</h1>

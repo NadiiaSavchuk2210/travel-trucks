@@ -1,7 +1,13 @@
 import { HOME_PAGE_URL, OG_IMAGE_URL, SITE_NAME } from "@/constants/constants";
 import { fetchCamperById } from "@/lib/api/api";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import CamperDetailsClient from "./CamperDetails.client";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -68,7 +74,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const CamperDetails = async ({ params }: Props) => {
   const { id } = await params;
-  return <div>CamperDetails {id}</div>;
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery({
+    queryKey: ["camper", id],
+    queryFn: () => fetchCamperById(id),
+  });
+
+  return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <CamperDetailsClient />
+    </HydrationBoundary>
+  );
 };
 
 export default CamperDetails;

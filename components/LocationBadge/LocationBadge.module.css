@@ -1,0 +1,14 @@
+.location {
+  gap: 4px;
+  min-width: 118px;
+}
+
+.locationText {
+  font-family: var(--font-family);
+  font-size: var(--font-base);
+  color: var(--color-main);
+}
+
+.locationIcon {
+  fill: var(--color-main);
+}

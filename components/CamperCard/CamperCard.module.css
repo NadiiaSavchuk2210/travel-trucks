@@ -1,0 +1,212 @@
+.card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-light);
+  border-radius: 20px;
+
+  transition:
+    transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 300ms ease;
+  will-change: transform;
+}
+
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow:
+      0 10px 24px rgba(0, 0, 0, 0.06),
+      0 4px 12px rgba(0, 0, 0, 0.03);
+  }
+}
+
+.camperImage {
+  width: 292px;
+  height: 320px;
+  object-fit: cover;
+  object-position: center right;
+  border-radius: 10px;
+}
+
+.camperDetails {
+  width: 100%;
+}
+
+.camperDetailsHeader {
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.camperTitle {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: var(--font-lg);
+  line-height: 1.33;
+  color: var(--color-main);
+}
+
+.camperInfo {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 156px;
+}
+
+.camperPrice {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: var(--font-lg);
+  line-height: 1.33;
+  color: var(--color-main);
+}
+
+.favoriteBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.favoriteIcon {
+  fill: var(--color-main);
+  transition: fill var(--transition-base);
+}
+
+.favoriteBtn:hover .favoriteIcon {
+  fill: var(--color-button);
+}
+
+.camperReviewAndLocation {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.camperDescription {
+  margin-bottom: 15px;
+  font-family: var(--font-family);
+  font-size: var(--font-base);
+  color: var(--color-text);
+  max-width: 500px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badgesContainer {
+  margin-bottom: 24px;
+  display: flex;
+  gap: 8px;
+  max-width: 100%;
+  flex-wrap: wrap;
+  height: 104px;
+  overflow-y: auto;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.badgesContainer::-webkit-scrollbar {
+  width: 4px;
+}
+
+.badgesContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.badgesContainer::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.badgesContainer::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.camperDetailsBtn {
+  display: inline-block;
+  height: 46px;
+  padding: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .camperImage {
+    height: 300px;
+    width: auto;
+  }
+
+  .camperDescription {
+    max-width: 686px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .card {
+    flex-direction: row;
+    gap: 24px;
+    max-height: 368px;
+  }
+
+  .camperImage {
+    width: 292px;
+    height: 320px;
+  }
+
+  .camperDetailsHeader {
+    flex-direction: row;
+  }
+
+  .camperTitle {
+    font-size: var(--font-xl);
+  }
+
+  .camperInfo {
+    margin-bottom: 0px;
+    gap: 12px;
+    min-width: 156px;
+  }
+
+  .camperPrice {
+    font-size: var(--font-xl);
+  }
+
+  .favoriteBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .favoriteIcon {
+    fill: var(--color-main);
+    transition: fill var(--transition-base);
+  }
+
+  .favoriteBtn:hover .favoriteIcon {
+    fill: var(--color-button);
+  }
+
+  .camperReviewAndLocation {
+    flex-direction: row;
+  }
+
+  .camperDescription {
+    margin-bottom: 24px;
+    max-width: 525px;
+  }
+
+  .badgesContainer {
+    max-width: 391px;
+  }
+
+  .camperDetailsBtn {
+    padding: 16px 40px;
+    width: 166px;
+    height: 56px;
+  }
+}

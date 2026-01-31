@@ -51,6 +51,7 @@ input:checked {
 }
 
 button {
+  background-color: transparent;
   cursor: pointer;
 }
 

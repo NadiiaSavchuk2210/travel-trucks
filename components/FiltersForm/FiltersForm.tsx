@@ -1,12 +1,19 @@
 "use client";
 
-import { VehicleEquipmentOpts, VehicleTypeOpts } from "@/types/filter";
+import {
+  CampersFilter,
+  VehicleEquipmentOpts,
+  VehicleTypeOpts,
+} from "@/types/filter";
 import { CheckableInput } from "../CheckableInput/CheckableInput";
 import FilterGroup from "../FilterGroup/FilterGroup";
-import css from "./FiltersForm.module.css";
 import Button from "../Button/Button";
+import css from "./FiltersForm.module.css";
+
 import { useCampersFilterStore } from "@/lib/store/campersFilterStore";
-import { useEffect } from "react";
+import { useCampersStore } from "@/lib/store/campersStrore";
+import { useEffect, useMemo } from "react";
+import { useRouter } from "next/navigation";
 
 interface Props {
   vehicleEquipmentOpts: readonly VehicleEquipmentOpts[];
@@ -14,13 +21,18 @@ interface Props {
 }
 
 const FiltersForm = ({ vehicleEquipmentOpts, vehicleTypeOpts }: Props) => {
+  const router = useRouter();
+
   const {
+    filter,
     draftFilter,
     setDraftFilter,
     applyFilter,
     hydrateDraftFromFilter,
     resetAll,
   } = useCampersFilterStore();
+
+  const clearCampers = useCampersStore((state) => state.clearCampers);
 
   useEffect(() => {
     hydrateDraftFromFilter();
@@ -29,18 +41,39 @@ const FiltersForm = ({ vehicleEquipmentOpts, vehicleTypeOpts }: Props) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, checked, type } = e.target;
 
-    setDraftFilter((prev) => {
-      if (type === "radio") {
-        return { ...prev, [name]: value };
-      }
-
-      return { ...prev, [name]: checked };
-    });
+    setDraftFilter((prev) => ({
+      ...prev,
+      [name]: type === "radio" ? value : checked,
+    }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const isFilterUnchanged = useMemo(() => {
+    return Object.keys(draftFilter).every(
+      (key) =>
+        draftFilter[key as keyof CampersFilter] ===
+        filter[key as keyof CampersFilter],
+    );
+  }, [draftFilter, filter]);
+
+  const isFilterEmpty = useMemo(() => {
+    return Object.values(draftFilter).every(
+      (value) => value === "" || value === false || value === null,
+    );
+  }, [draftFilter]);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (isFilterUnchanged) return;
+
+    clearCampers();
     applyFilter();
+  };
+
+  const handleReset = () => {
+    resetAll();
+    clearCampers();
+    router.replace("?", { scroll: false });
   };
 
   return (
@@ -57,6 +90,7 @@ const FiltersForm = ({ vehicleEquipmentOpts, vehicleTypeOpts }: Props) => {
           />
         ))}
       </FilterGroup>
+
       <FilterGroup title="Vehicle type">
         {vehicleTypeOpts.map((option) => (
           <CheckableInput
@@ -69,8 +103,14 @@ const FiltersForm = ({ vehicleEquipmentOpts, vehicleTypeOpts }: Props) => {
           />
         ))}
       </FilterGroup>
+
       <div className={css.btnGroup}>
-        <Button as="button" type="submit" className={css.filterButton}>
+        <Button
+          as="button"
+          type="submit"
+          className={css.filterButton}
+          disabled={isFilterEmpty}
+        >
           Search
         </Button>
         <Button
@@ -78,7 +118,8 @@ const FiltersForm = ({ vehicleEquipmentOpts, vehicleTypeOpts }: Props) => {
           type="reset"
           variant="outline"
           className={css.filterButton}
-          onClick={resetAll}
+          onClick={handleReset}
+          disabled={isFilterEmpty}
         >
           Reset
         </Button>

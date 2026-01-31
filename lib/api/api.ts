@@ -34,7 +34,9 @@ export const fetchCampers = async ({
 
   const queryString = buildQueryString(params);
 
-  const { data } = await api.get(`/campers?${queryString}`);
+  const { data } = await api.get<FetchCampersResponse>(
+    `/campers?${queryString}`,
+  );
   return data;
 };
 

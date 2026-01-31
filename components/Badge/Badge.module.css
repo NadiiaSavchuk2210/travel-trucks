@@ -1,0 +1,26 @@
+.badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  fill: var(--color-main);
+}
+
+.badge.primary {
+  padding: 14px 18px;
+  background-color: var(--color-badges);
+  border-radius: 50px;
+  mix-blend-mode: multiply;
+  height: 48px;
+}
+
+.badge.primary .badgeText {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: var(--font-base);
+  text-align: center;
+  color: var(--color-main);
+}

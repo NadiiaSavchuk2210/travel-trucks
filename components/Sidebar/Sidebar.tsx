@@ -4,9 +4,7 @@ import css from "./Sidebar.module.css";
 const Sidebar = () => {
   return (
     <aside className={css.sidebar}>
-      <div className={css.sidebarContainer}>
-        <FiltersLayout />
-      </div>
+      <FiltersLayout />
     </aside>
   );
 };

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { HOME_PAGE_URL, OG_IMAGE_URL, SITE_NAME } from "@/constants/constants";
 import css from "./page.module.css";
-
+import Sidebar from "@/components/Sidebar/Sidebar";
 import Campers from "@/components/Campers/Campers";
 
 export const metadata: Metadata = {
@@ -37,10 +37,14 @@ export const metadata: Metadata = {
 
 const CatalogPage = () => {
   return (
-    <section className={css.catalogSection}>
-      Campers
-      <Campers />
-    </section>
+    <div className={css.pageLayout}>
+      <Sidebar />
+
+      <section className={`${css.catalogSection} ${css.content}`}>
+        <h1 className="visually-hidden">Campers Catalog</h1>
+        <Campers />
+      </section>
+    </div>
   );
 };
 

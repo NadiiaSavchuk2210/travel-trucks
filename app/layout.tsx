@@ -7,6 +7,7 @@ import "./styles/globals.css";
 import Header from "@/components/Header/Header";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 import { HOME_PAGE_URL, OG_IMAGE_URL, SITE_NAME } from "@/constants/constants";
+import Toast from "@/components/Toast/Toast";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -81,11 +82,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body className={`${inter.variable}`}>
         <TanStackProvider>
           <Header />
           <main>{children}</main>
+          <Toast />
         </TanStackProvider>
       </body>
     </html>
