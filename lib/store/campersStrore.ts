@@ -6,6 +6,7 @@ type CampersStore = {
   campers: Camper[];
   campersFavorite: Camper[];
   setCampers: (campers: Camper[]) => void;
+  appendCampers: (campers: Camper[]) => void;
   clearCampers: () => void;
   clearCamperFavorite: () => void;
   toggleCamperFavorite: (camper: Camper) => void;
@@ -17,7 +18,20 @@ export const useCampersStore = create<CampersStore>()(
       campers: [],
       campersFavorite: [],
 
-      setCampers: (campers: Camper[]) => set({ campers }),
+      setCampers: (campers) => set({ campers }),
+
+      appendCampers: (campers) =>
+        set((state) => {
+          const existingIds = new Set(state.campers.map((camper) => camper.id));
+
+          const uniqueCampers = campers.filter(
+            (camper) => !existingIds.has(camper.id),
+          );
+
+          return {
+            campers: [...state.campers, ...uniqueCampers],
+          };
+        }),
 
       clearCampers: () => set({ campers: [] }),
       clearCamperFavorite: () => set({ campersFavorite: [] }),

@@ -9,3 +9,6 @@ export const OG_IMAGE_URL = "/traveltrucks-og.png";
 
 //* CAMPERS =================================================
 export const CAMPERS_PER_PAGE = 4;
+
+//* TIME =================================================
+export const ONE_MINUTE = 60_000;
