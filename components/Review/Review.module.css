@@ -1,0 +1,48 @@
+.reviewCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 60px;
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: var(--font-xl);
+  line-height: 1.33;
+  color: var(--color-button);
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-badges);
+  border-radius: 60px;
+}
+
+.reviewRatingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 44px;
+}
+
+.reviewerName {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: var(--font-base);
+  color: var(--color-main);
+}
+
+.reviewText {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: var(--font-base);
+  color: var(--color-text);
+}
