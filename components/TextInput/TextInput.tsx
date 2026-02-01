@@ -4,16 +4,22 @@ import css from "./TextInput.module.css";
 type TextInputProps = {
   id: string;
   label?: string;
+  name: string;
   value?: string;
   defaultValue?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => void;
   placeholder?: string;
   icon?: React.ReactNode;
   iconPosition?: "left" | "right";
   disabled?: boolean;
   minLength?: number;
   required?: boolean;
-  name: string;
+  multiline?: boolean;
+  rows?: number;
+  hasError?: boolean;
+  errorMessage?: string;
 };
 
 export const TextInput = ({
@@ -29,6 +35,9 @@ export const TextInput = ({
   iconPosition = "left",
   minLength = 3,
   required,
+  multiline = false,
+  rows = 4,
+  hasError = false,
 }: TextInputProps) => {
   return (
     <label className={css.textInputLabel}>
@@ -39,21 +48,36 @@ export const TextInput = ({
           icon && css.hasIcon,
           icon && iconPosition === "left" && css.left,
           icon && iconPosition === "right" && css.right,
+          hasError && css.errorInputWrapper,
         )}
       >
-        <input
-          id={id}
-          type="text"
-          name={name}
-          value={value}
-          defaultValue={defaultValue}
-          onChange={onChange}
-          placeholder={placeholder || " "}
-          disabled={disabled}
-          className={css.textInput}
-          minLength={minLength}
-          required={required}
-        />
+        {multiline ? (
+          <textarea
+            id={id}
+            name={name}
+            value={value}
+            defaultValue={defaultValue}
+            onChange={onChange}
+            placeholder={!value ? placeholder : undefined}
+            disabled={disabled}
+            className={clsx(css.textarea, hasError && css.errorInput)}
+            rows={rows}
+          />
+        ) : (
+          <input
+            id={id}
+            type="text"
+            name={name}
+            value={value}
+            defaultValue={defaultValue}
+            onChange={onChange}
+            placeholder={placeholder || " "}
+            disabled={disabled}
+            className={clsx(css.textInput, hasError && css.errorInput)}
+            minLength={minLength}
+            required={required}
+          />
+        )}
         {icon && iconPosition === "left" && (
           <span className={css.textInputIcon}>{icon}</span>
         )}

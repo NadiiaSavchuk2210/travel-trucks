@@ -1,7 +1,7 @@
 import { CAMPERS_PER_PAGE, ONE_MINUTE } from "@/constants/constants";
 import { createCampersQueryKey } from "@/helpers/queryHelpers/createCampersQueryKey";
 
-import { fetchCampers } from "@/lib/api/api";
+import { fetchCampers } from "@/lib/api/campers-api";
 import { useCampersFilterStore } from "@/lib/store/campersFilterStore";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";

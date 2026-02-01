@@ -1,0 +1,21 @@
+.booking {
+  border: 1px solid var(--color-gray-light);
+  border-radius: 10px;
+  padding: 44px;
+}
+
+.bookingTitle {
+  margin-bottom: 8px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: var(--font-lg);
+  line-height: 1.2;
+  color: var(--color-main);
+}
+
+.bookingText {
+  margin-bottom: 24px;
+  font-family: var(--font-family);
+  font-size: var(--font-base);
+  color: var(--color-gray);
+}

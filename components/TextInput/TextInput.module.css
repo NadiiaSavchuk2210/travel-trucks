@@ -76,6 +76,10 @@
   border: 1px solid var(--color-main);
 }
 
+.errorInput {
+  outline: 2px solid var(--color-button-hover);
+}
+
 @media screen and (min-width: 768px) {
   .textInputWrapper {
     height: 56px;
