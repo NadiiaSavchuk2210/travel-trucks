@@ -81,7 +81,7 @@ Tech Stack
 - Zustand
 - Axios
 - Next.js App Router
-- CSS Modules (or any other CSS solution)
+- CSS Modules
 
 Installation and Usage
 
@@ -96,20 +96,6 @@ Installation and Usage
 
 4. Open the application in your browser:
    http://localhost:3000
-
-Design and Development Notes
-
-- The layout follows the provided design mockup
-- The desktop version is fully implemented
-- Responsive design is optional
-- Component-based architecture is used
-- DRY principles are followed
-- Clean and readable code with comments where necessary
-
-Deployment
-
-The project is deployed on Vercel or Netlify.
-Routing, filtering, and pagination work correctly on the live version.
 
 Author
 
