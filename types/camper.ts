@@ -11,6 +11,8 @@ export interface ReviewItem {
   comment: string;
 }
 
+export type VehicleType = (typeof VEHICLE_TYPES)[number];
+
 export interface Camper {
   id: string;
   name: string;
@@ -39,4 +41,18 @@ export interface Camper {
   reviews: ReviewItem[];
 }
 
-export type VehicleType = (typeof VEHICLE_TYPES)[number];
+export interface BookingData {
+  camperId: string;
+  name: string;
+  email: string;
+  bookingDate: string;
+  comment?: string;
+  created_at: string;
+}
+
+export interface NewBookingData {
+  name: string;
+  email: string;
+  bookingDate: string;
+  comment?: string;
+}

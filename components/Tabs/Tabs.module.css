@@ -33,7 +33,7 @@
   padding-bottom: 24px;
   font-family: var(--font-family);
   font-weight: 600;
-  font-size: 20px;
+  font-size: var(--font-lg);
   line-height: 1.2;
   color: var(--color-main);
   position: relative;

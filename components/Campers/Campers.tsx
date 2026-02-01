@@ -13,6 +13,7 @@ import { buildQueryString } from "@/helpers/queryHelpers/buildQueryString";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { useFetchCampers } from "@/hooks/useFetchCampers";
+import Loader from "../Loader/Loader";
 
 const Campers = () => {
   const router = useRouter();
@@ -51,11 +52,14 @@ const Campers = () => {
   }, [campers, page, appendCampers, setCampers]);
 
   useEffect(() => {
-    if (isError && !campers?.length) {
-      toast.error("No campers found for your selected filters.");
-      return;
+    if (!isLoading && isError) {
+      if (!campersStored.length) {
+        toast.error("No campers found for your selected filters.");
+      } else {
+        toast.error("Failed to load campers. Please try again.");
+      }
     }
-  }, [campers?.length, isError]);
+  }, [isError, isLoading, campersStored.length]);
 
   useEffect(() => {
     if (page === 1) {
@@ -65,7 +69,10 @@ const Campers = () => {
 
   return (
     <>
-      <CampersList campers={campersStored} />
+      {isLoading && <Loader />}
+      {!isLoading && campersStored.length > 0 && (
+        <CampersList campers={campersStored} />
+      )}
       {page < totalPages && (
         <Button
           as="button"

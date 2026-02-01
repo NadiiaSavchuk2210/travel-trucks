@@ -1,5 +1,5 @@
 import { ONE_MINUTE } from "@/constants/constants";
-import { fetchCamperById } from "@/lib/api/api";
+import { fetchCamperById } from "@/lib/api/campers-api";
 import { useQuery } from "@tanstack/react-query";
 
 //* Fetch camper

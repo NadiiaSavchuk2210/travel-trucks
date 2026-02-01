@@ -29,12 +29,7 @@ const CampersList = ({ campers }: Props) => {
   return (
     <ul className={css.camperList} ref={listRef}>
       {campers.map((camper, index) => (
-        <CamperCard
-          key={camper.id}
-          camper={camper}
-          data-camper-index={index}
-          cardIndex={index}
-        />
+        <CamperCard key={camper.id} camper={camper} cardIndex={index} />
       ))}
     </ul>
   );

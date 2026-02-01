@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import css from "./Tabs.module.css";
-import BookingForm from "../BookingForm/BookingForm";
 import clsx from "clsx";
+import Booking from "../BookingForm/Booking/Booking";
 
 const tabs = [
   { id: "features", label: "Features", href: "/features" },
@@ -40,7 +40,7 @@ const Tabs = ({ camperId, children }: Props) => {
         <div className={css.tabsContentMain}>{children}</div>
       </main>
       <aside className={css.tabsSidebar}>
-        <BookingForm camperId="3" />
+        <Booking />
       </aside>
     </div>
   );

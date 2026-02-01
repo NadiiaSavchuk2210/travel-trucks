@@ -1,5 +1,5 @@
 import { HOME_PAGE_URL, OG_IMAGE_URL, SITE_NAME } from "@/constants/constants";
-import { fetchCamperById } from "@/lib/api/api";
+import { fetchCamperById } from "@/lib/api/campers-api";
 import {
   dehydrate,
   HydrationBoundary,

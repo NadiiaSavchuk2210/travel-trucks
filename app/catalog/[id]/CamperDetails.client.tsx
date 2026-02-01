@@ -7,13 +7,14 @@ import { formatPrice } from "@/helpers/formatterHelpers/priceFormatter";
 import ReviewBadge from "@/components/ReviewBadge/ReviewBadge";
 import LocationBadge from "@/components/LocationBadge/LocationBadge";
 import Gallery from "@/components/Gallery/Gallery";
+import Loader from "@/components/Loader/Loader";
 
 const CamperDetailsClient = () => {
   const { id } = useParams<{ id: string }>();
   const { camper, isLoading, isError } = useFetchCamper(id);
 
-  if (isLoading) return <p>Loading, please wait...</p>;
-  if (isError || !camper) return <p>Something went wrong.</p>;
+  if (isError) return <p>Failed to load camper. Please try again.</p>;
+  if (!camper) return <p>Camper not found.</p>;
 
   return (
     <section className={css.camperDetails}>
@@ -28,6 +29,7 @@ const CamperDetailsClient = () => {
       </div>
       <Gallery images={camper.gallery} />
       <p className={css.camperDescription}>{camper.description}</p>
+      {isLoading && <Loader />}
     </section>
   );
 };
