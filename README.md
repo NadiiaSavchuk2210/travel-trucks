@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TravelTrucks - Camper Rental Frontend
 
-## Getting Started
+Project Overview
 
-First, run the development server:
+TravelTrucks is a frontend web application for a camper rental company.
+The goal of the project is to build a modern and user-friendly interface that allows users to browse, filter, favorite, and book campers.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The application includes a home page, a catalog page with filtering and pagination, and a camper details page with reviews and a booking form.
+All camper data is fetched from a ready-made backend API.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Home Page
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Promotional banner with a main call to action
+- "View Now" button that navigates to the campers catalog
 
-## Learn More
+Catalog Page
 
-To learn more about Next.js, take a look at the following resources:
+- Display of all available campers
+- Backend-based filtering (filtering is not done on the frontend)
+- Filters:
+  - Location (text input)
+  - Vehicle type (single selection)
+  - Features (multiple selection): AC, kitchen, bathroom, TV, radio, refrigerator, microwave, gas, water
+- Ability to add and remove campers from favorites
+- Favorites are persisted after page reload
+- Backend pagination
+- "Load More" button to fetch additional campers
+- Rental price stored as a single number (e.g. 8000) and displayed as 8000.00 in UI
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Camper Details Page
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Detailed camper description
+- Image gallery
+- Tabs:
+  - Features (active by default)
+  - Reviews
+- Camper characteristics:
+  transmission, engine, AC, bathroom, kitchen, TV, radio, refrigerator, microwave, gas, water
+- Camper details:
+  form, length, width, height, tank, consumption
+- User reviews with a five-star rating system
+- Booking form with a success notification after submission
 
-## Deploy on Vercel
+Routing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The application uses Next.js App Router with the following routes:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- / — Home page
+- /catalog — Campers catalog
+- /catalog/:id — Camper details page
+
+State Management
+
+- Zustand is used for global state management
+- Global state includes:
+  - Campers list
+  - Filters state
+  - Favorites list
+- Before sending a new filtered request, previous results are cleared to ensure correct data display
+
+API
+
+Base URLs
+API_BASE_URL = https://66b1f8e71ca8ad33d4f5f63e.mockapi.io
+BOOKING_API_BASE_URL = https://69785af8cd4fe130e3d897b6.mockapi.io
+
+Endpoints
+
+- GET /campers — Fetch all campers (filtering is handled on the backend)
+- GET /campers/:id — Fetch camper details by ID
+
+Backend API documentation:
+https://github.com/mockapi-io/docs/wiki
+
+Tech Stack
+
+- Next.js
+- TypeScript
+- Zustand
+- Axios
+- Next.js App Router
+- CSS Modules (or any other CSS solution)
+
+Installation and Usage
+
+1. Clone the repository:
+   git clone https://github.com/your-username/traveltrucks.git
+
+2. Install dependencies:
+   npm install
+
+3. Run the development server:
+   npm run dev
+
+4. Open the application in your browser:
+   http://localhost:3000
+
+Design and Development Notes
+
+- The layout follows the provided design mockup
+- The desktop version is fully implemented
+- Responsive design is optional
+- Component-based architecture is used
+- DRY principles are followed
+- Clean and readable code with comments where necessary
+
+Deployment
+
+The project is deployed on Vercel or Netlify.
+Routing, filtering, and pagination work correctly on the live version.
+
+Author
+
+Nadiia Savchuk
+Frontend Developer
