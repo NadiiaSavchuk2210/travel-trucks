@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import css from "./CamperCard.module.css";
 import Icon from "../Icon/Icon";
@@ -8,6 +10,9 @@ import Button from "../Button/Button";
 import { Camper } from "@/types/camper";
 import { formatPrice } from "@/helpers/formatterHelpers/priceFormatter";
 import { useCamperFeatures } from "@/hooks/useCamperFeatures";
+import { useCampersStore } from "@/lib/store/campersStrore";
+import { clsx } from "clsx";
+import { useEffect } from "react";
 
 interface Props {
   camper: Camper;
@@ -17,6 +22,16 @@ interface Props {
 const CamperCard = ({ camper, cardIndex }: Props) => {
   const badgeValues = useCamperFeatures(camper);
   const camperImg = camper.gallery[0].thumb;
+
+  useEffect(() => {}, []);
+
+  const { campersFavorite, toggleCamperFavorite } = useCampersStore();
+
+  const isFavorite = campersFavorite.some((item) => item.id === camper.id);
+
+  const handleFavoriteClick = () => {
+    toggleCamperFavorite(camper);
+  };
 
   return (
     <>
@@ -36,9 +51,12 @@ const CamperCard = ({ camper, cardIndex }: Props) => {
             <h3 className={css.camperTitle}>{camper.name}</h3>
             <div className={css.camperInfo}>
               <p className={css.camperPrice}>€{formatPrice(camper.price)}</p>
-              <button className={css.favoriteBtn}>
+              <button className={css.favoriteBtn} onClick={handleFavoriteClick}>
                 <Icon
-                  className={css.favoriteIcon}
+                  className={clsx(
+                    css.favoriteIcon,
+                    isFavorite && css.isFavorite,
+                  )}
                   name="icon-heart"
                   label="favorite"
                   width={26}
