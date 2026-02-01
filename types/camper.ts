@@ -1,11 +1,11 @@
 import { VEHICLE_TYPES } from "@/constants/filter-constants";
 
-interface GalleryItem {
+export interface GalleryItem {
   thumb: string;
   original: string;
 }
 
-interface ReviewItem {
+export interface ReviewItem {
   reviewer_name: string;
   reviewer_rating: number;
   comment: string;

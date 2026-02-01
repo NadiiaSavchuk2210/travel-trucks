@@ -1,0 +1,39 @@
+.camperTitle {
+  margin-bottom: 8px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: var(--font-lg);
+  line-height: 1.33;
+  color: var(--color-main);
+}
+
+.camperInfo {
+  margin-bottom: 28px;
+}
+
+.camperReviewAndLocation {
+  margin-bottom: 16px;
+  display: flex;
+  gap: 16px;
+}
+
+.camperPrice {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: var(--font-lg);
+  line-height: 1.33;
+  color: var(--color-main);
+}
+
+.camperDescription {
+  font-family: var(--font-family);
+  font-size: var(--font-base);
+  color: var(--color-text);
+}
+
+@media screen and (min-width: 1440px) {
+  .camperTitle,
+  .camperPrice {
+    font-size: var(--font-xl);
+  }
+}

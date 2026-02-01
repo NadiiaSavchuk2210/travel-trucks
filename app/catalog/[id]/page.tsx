@@ -6,7 +6,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import CamperDetailsClient from "./CamperDetails.client";
 
 interface Props {
@@ -74,12 +74,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const CamperDetails = async ({ params }: Props) => {
   const { id } = await params;
+
   const queryClient = new QueryClient();
+
   await queryClient.prefetchQuery({
     queryKey: ["camper", id],
     queryFn: () => fetchCamperById(id),
   });
 
+  redirect(`/catalog/${id}/features`);
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <CamperDetailsClient />

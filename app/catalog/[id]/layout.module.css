@@ -1,0 +1,17 @@
+.CamperLayout {
+  margin: 0 auto;
+  padding: 48px 15px 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .CamperLayout {
+    max-width: 768px;
+  }
+}
+
+@media screen and (min-width: 1158px) {
+  .CamperLayout {
+    padding: 48px 15px 80px;
+    max-width: 1342px;
+  }
+}

@@ -6,7 +6,7 @@ import Badge from "../Badge/Badge";
 import LocationBadge from "../LocationBadge/LocationBadge";
 import Button from "../Button/Button";
 import { Camper } from "@/types/camper";
-import { formatPrice } from "@/helpers/formatHelpers/formatPrice";
+import { formatPrice } from "@/helpers/formatterHelpers/priceFormatter";
 import { useCamperFeatures } from "@/hooks/useCamperFeatures";
 
 interface Props {
