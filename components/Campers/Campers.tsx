@@ -21,6 +21,7 @@ const Campers = () => {
   const {
     setCampers,
     appendCampers,
+    campersFavorite,
     campers: campersStored,
   } = useCampersStore();
   const { campersResponse, isLoading, isError } = useFetchCampers(page);
@@ -28,6 +29,11 @@ const Campers = () => {
   const campers = campersResponse?.items;
   const totalCampers = campersResponse?.total ?? 1;
   const totalPages = Math.ceil(totalCampers / CAMPERS_PER_PAGE);
+
+  const campersWithFavorite = campersStored.map((camper) => ({
+    ...camper,
+    isFavorite: campersFavorite.some((item) => item.id === camper.id),
+  }));
 
   const onLoadMore = () => nextPage();
 
@@ -71,7 +77,7 @@ const Campers = () => {
     <>
       {isLoading && <Loader />}
       {!isLoading && campersStored.length > 0 && (
-        <CampersList campers={campersStored} />
+        <CampersList campers={campersWithFavorite} />
       )}
       {page < totalPages && (
         <Button

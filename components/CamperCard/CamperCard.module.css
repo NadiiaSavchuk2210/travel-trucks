@@ -76,7 +76,8 @@
   transition: fill var(--transition-base);
 }
 
-.favoriteBtn:hover .favoriteIcon {
+.favoriteBtn:hover .favoriteIcon,
+.isFavorite {
   fill: var(--color-button);
 }
 
@@ -180,15 +181,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .favoriteIcon {
-    fill: var(--color-main);
-    transition: fill var(--transition-base);
-  }
-
-  .favoriteBtn:hover .favoriteIcon {
-    fill: var(--color-button);
   }
 
   .camperReviewAndLocation {
