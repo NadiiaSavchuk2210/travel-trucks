@@ -1,0 +1,29 @@
+.badgesContainer {
+  margin-bottom: 24px;
+  display: flex;
+  gap: 8px;
+  max-width: 100%;
+  flex-wrap: wrap;
+  height: 104px;
+  overflow-y: auto;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.badgesContainer::-webkit-scrollbar {
+  width: 4px;
+}
+
+.badgesContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.badgesContainer::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.badgesContainer::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}

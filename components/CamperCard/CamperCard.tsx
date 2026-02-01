@@ -4,15 +4,14 @@ import Image from "next/image";
 import css from "./CamperCard.module.css";
 import Icon from "../Icon/Icon";
 import ReviewBadge from "../ReviewBadge/ReviewBadge";
-import Badge from "../Badge/Badge";
 import LocationBadge from "../LocationBadge/LocationBadge";
 import Button from "../Button/Button";
 import { Camper } from "@/types/camper";
 import { formatPrice } from "@/helpers/formatterHelpers/priceFormatter";
-import { useCamperFeatures } from "@/hooks/useCamperFeatures";
 import { useCampersStore } from "@/lib/store/campersStrore";
 import { clsx } from "clsx";
 import { useEffect } from "react";
+import Features from "../Features/Features";
 
 interface Props {
   camper: Camper;
@@ -20,7 +19,6 @@ interface Props {
 }
 
 const CamperCard = ({ camper, cardIndex }: Props) => {
-  const badgeValues = useCamperFeatures(camper);
   const camperImg = camper.gallery[0].thumb;
 
   useEffect(() => {}, []);
@@ -70,20 +68,8 @@ const CamperCard = ({ camper, cardIndex }: Props) => {
             <LocationBadge locationValue={camper.location} />
           </div>
           <p className={css.camperDescription}>{camper.description}</p>
-          <div className={css.badgesContainer}>
-            {badgeValues.map((feature) => (
-              <Badge
-                key={feature.name}
-                variant="primary"
-                iconName={`icon-${feature.icon}`}
-                iconLabel={feature.name}
-                iconWidth={20}
-                iconHeight={20}
-              >
-                {feature.name}
-              </Badge>
-            ))}
-          </div>
+
+          <Features camper={camper} />
 
           <Button
             as="link"
