@@ -1,0 +1,15 @@
+.vehicleDetailsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vehicleDetail {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: var(--font-base);
+  text-align: center;
+  color: var(--color-main);
+}

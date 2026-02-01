@@ -36,9 +36,9 @@ const Tabs = ({ camperId, children }: Props) => {
           );
         })}
       </nav>
-      <main className={css.tabsContent}>
+      <div className={css.tabsContent}>
         <div className={css.tabsContentMain}>{children}</div>
-      </main>
+      </div>
       <aside className={css.tabsSidebar}>
         <Booking />
       </aside>
