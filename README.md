@@ -81,7 +81,7 @@ Tech Stack
 - Zustand
 - Axios
 - Next.js App Router
-- CSS Modules
+- CSS Modules 
 
 Installation and Usage
 
@@ -96,6 +96,13 @@ Installation and Usage
 
 4. Open the application in your browser:
    http://localhost:3000
+
+
+
+Deployment
+
+The project is deployed on Vercel or Netlify.
+Routing, filtering, and pagination work correctly on the live version.
 
 Author
 
