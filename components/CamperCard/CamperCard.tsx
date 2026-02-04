@@ -69,7 +69,7 @@ const CamperCard = ({ camper, cardIndex }: Props) => {
           </div>
           <p className={css.camperDescription}>{camper.description}</p>
 
-          <Features camper={camper} />
+          <Features camper={camper} className={css.camperFeaturesContainer} />
 
           <Button
             as="link"

@@ -5,13 +5,14 @@ import Badge from "../Badge/Badge";
 
 interface Props {
   camper: Camper;
+  className?: string;
 }
 
-const Features = ({ camper }: Props) => {
+const Features = ({ camper, className }: Props) => {
   const badgeValues = useCamperFeatures(camper);
 
   return (
-    <div className={css.badgesContainer}>
+    <div className={`${css.badgesContainer} ${className}`}>
       {badgeValues.map((feature) => (
         <Badge
           key={feature.name}
