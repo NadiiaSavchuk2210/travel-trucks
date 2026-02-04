@@ -5,7 +5,7 @@ export const BOOKING_API_BASE_URL =
 
 //* SITE METADATA =================================================
 export const SITE_NAME = "TravelTrucks";
-export const HOME_PAGE_URL = "http://localhost:3000";
+export const HOME_PAGE_URL = "https://travel-trucks-ten-kappa.vercel.app";
 
 export const OG_IMAGE_URL = "/traveltrucks-og.png";
 
