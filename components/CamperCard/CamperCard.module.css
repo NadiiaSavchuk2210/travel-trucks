@@ -42,11 +42,34 @@
 }
 
 .camperTitle {
+  margin-right: 20px;
+  height: 32px;
+  overflow-y: auto;
   font-family: var(--font-family);
   font-weight: 600;
   font-size: var(--font-lg);
   line-height: 1.33;
   color: var(--color-main);
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.camperTitle::-webkit-scrollbar {
+  width: 4px;
+}
+
+.camperTitle::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.camperTitle::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.camperTitle::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .camperInfo {
@@ -98,6 +121,10 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.camperFeaturesContainer {
+  margin-bottom: 24px;
 }
 
 .camperDetailsBtn {
