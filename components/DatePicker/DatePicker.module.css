@@ -67,7 +67,10 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  transition: all var(--transition-base);
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base),
+    border-radius var(--transition-base);
 }
 
 .myDatepicker :global(.react-datepicker__month),
@@ -116,4 +119,13 @@
   fill: var(--color-white) !important;
   stroke: var(--color-white) !important;
   color: var(--color-white) !important;
+}
+
+.navBtn .navBtnIcon {
+  fill: var(--color-text);
+  transition: color var(--transition-base);
+}
+
+.navBtn:hover .navBtnIcon {
+  color: var(--color-button);
 }
