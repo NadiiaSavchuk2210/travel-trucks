@@ -95,5 +95,15 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M17.333 10.667h-8C8.597 10.667 8 11.264 8 12v6.667C8 19.403 8.597 20 9.333 20h8c.736 0 1.333-.597 1.333-1.333V12c0-.736-.597-1.333-1.333-1.333zM24 10.667V20M8 25.333V28m16-2.667V28" />
         </symbol>
+
+        <symbol id="icon-arrow-right" viewBox="0 0 18 32">
+            <path fill="currentColor"
+                d="M.586 31.414a2 2 0 0 1 0-2.828L13.172 16 .586 3.414A2 2 0 1 1 3.414.586l14 14a2 2 0 0 1 0 2.828l-14 14a2 2 0 0 1-2.828 0z" />
+        </symbol>
+        <symbol id="icon-arrow-left" viewBox="0 0 18 32">
+            <path fill="currentColor"
+                d="M17.414.586a2 2 0 0 1 0 2.828L4.828 16l12.586 12.586a2 2 0 1 1-2.828 2.828l-14-14a2 2 0 0 1 0-2.828l14-14a2 2 0 0 1 2.828 0z" />
+        </symbol>
+
     </defs>
 </svg>

@@ -1,0 +1,119 @@
+.myDatepicker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-text);
+  border-radius: 12px;
+  z-index: 5;
+}
+
+.myDatepicker :global(.react-datepicker__header) {
+  margin-bottom: 12px;
+  padding: 12px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: var(--font-base);
+  line-height: 120%;
+  text-align: center;
+  color: var(--color-main);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-white);
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+}
+.myDatepicker .header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.myDatepicker :global(.react-datepicker__day-names),
+.myDatepicker :global(.react-datepicker__month) {
+  margin: 0 auto 8px;
+  display: grid;
+  grid-template-columns: repeat(7, 36px);
+  justify-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.myDatepicker :global(.react-datepicker__day-names) {
+  margin-bottom: 4px;
+}
+
+.myDatepicker :global(.react-datepicker__day-name) {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: var(--font-xs);
+  color: var(--color-text);
+  height: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.myDatepicker :global(.react-datepicker__day) {
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: var(--font-sm);
+  color: var(--color-main);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: all var(--transition-base);
+}
+
+.myDatepicker :global(.react-datepicker__month),
+.myDatepicker :global(.react-datepicker__day-name) {
+  padding: 0 12px;
+}
+.myDatepicker :global(.react-datepicker__week) {
+  display: contents;
+}
+
+.myDatepicker :global(.react-datepicker__day--today) {
+  background-color: transparent;
+  color: var(--color-button);
+}
+
+.myDatepicker :global(.react-datepicker__day--selected),
+.myDatepicker :global(.react-datepicker__day:hover),
+.myDatepicker
+  :global(.react-datepicker__day--today.react-datepicker__day--selected) {
+  color: var(--color-inputs);
+  background-color: var(--color-text);
+}
+
+.myDatepicker :global(.react-datepicker__day--disabled) {
+  color: var(--color-text);
+  pointer-events: none;
+  cursor: default;
+}
+
+.myDatepicker :global(.react-datepicker__triangle),
+.myDatepicker :global(.react-datepicker__triangle::before),
+.myDatepicker :global(.react-datepicker__triangle::after),
+.react-datepicker-popper[data-placement="bottom"] .react-datepicker__triangle,
+.react-datepicker-popper[data-placement="bottom"]
+  .react-datepicker__triangle::before,
+.react-datepicker-popper[data-placement="bottom"]
+  .react-datepicker__triangle::after,
+.react-datepicker-popper[data-placement="top"] .react-datepicker__triangle,
+.react-datepicker-popper[data-placement="top"]
+  .react-datepicker__triangle::before,
+.react-datepicker-popper[data-placement="top"]
+  .react-datepicker__triangle::after {
+  background-color: var(--color-white) !important;
+  border-top-color: var(--color-white) !important;
+  border-bottom-color: var(--color-white) !important;
+  fill: var(--color-white) !important;
+  stroke: var(--color-white) !important;
+  color: var(--color-white) !important;
+}
